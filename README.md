@@ -23,7 +23,7 @@ This script requires the following:
   - See references below for information on getting the Room Id.
 
 ## EEM Setup
-Configure the EEM Applet on the switch.
+Configure the EEM Applet from the IOS-XE CLI on the switch.
   ```
   event manager session cli username "developer"
   event manager applet test
