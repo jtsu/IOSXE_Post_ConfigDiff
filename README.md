@@ -77,7 +77,7 @@ Time to run the app by making a configuration change on the switch. Log in to we
 
 **NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog message.
 
-###
+## References
 Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app.  
-You can find Patrick's original script here: https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark
+Patrick's original script can be found here: https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark
 
