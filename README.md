@@ -37,35 +37,37 @@ Configure the EEM Applet on the switch.
 ## GuestShell Setup
 IOX needs to be enable for guestshell.
   ```
-  iox
+  Type 'iox' in the IOS-XE CLI.
   ```
 
-Then enable guestshell.
+Enable guestshell.
   ```
-  guestshell enable
+  Type 'guestshell enable' in the IOS-XE CLI.
   ```
 
 Enter guestshell to install python  modules and setup DNS.
   ```
-  guestshell
+  Type 'guestshell' in the IOS-XE CLI.
   ```
 
-Config guestshell DNS.
+You should now be in GuestShell and will then configuring the DNS Name Server.
   ```
   echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
 
-Install requests module.
+From within GuestShell, install the python requests module.
   ```
   sudo pip install requests
   ```
 
-Copy the python script to the EEM user policy directory.
+Copy the python script to the EEM user policy directory.  
 
 **NOTE:** You can copy the script to a directory in guestshell or you can create a directory on the flash from the IOS-XE CLI.
 
-You can type `exit` to return to IOS-XE.
-
+Exit GuestShell and return to IOS-XE
+ ```
+ type `exit`
+ ```
 **NOTE:** The guestshell environment will persist across reboots.  It will not revert to the default state unless you do a `guestshell destory` and enable guestshell again.
 
 ## Run the app
