@@ -64,9 +64,9 @@ Configure the EEM Applet on the switch.
   - You can copy the script to a directory in guestshell or you can create a directory on the flash from the IOS-XE CLI.
 
 - Exit GuestShell and return to IOS-XE
- ```
- type `exit`
- ```
+  ```
+  type `exit`
+  ```
  
 **NOTE:** The guestshell environment will persist across reboots.  It will not revert to the default state unless you do a `guestshell destory` and enable guestshell again.
 
