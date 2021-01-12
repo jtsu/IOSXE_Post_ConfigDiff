@@ -75,16 +75,26 @@ Time to run the app by making a configuration change on the switch. Login to Web
 
 ## References
 Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  
+```
 https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark
+```
 
 Thanks to Ashish (ashirkar) for his blog post on EEM:
-https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479#:~:text=The%20EEM(Embedded%20Event%20manager,minor%20enhancements%20and%20create%20workarounds
+  ```
+  https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479#:~:text=The%20EEM(Embedded%20Event%20manager,minor%20enhancements%20and%20create%20workarounds
+  ```
 
 Thanks to Hank Preston for his blog post on GuestShell:
-https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394
+  ```
+  https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394
+  ```
 
 Cisco Reference link to create a WebEx Teams Bot:
-https://developer.webex.com/docs/bots
+  ```
+  https://developer.webex.com/docs/bots
+  ```
 
 Cisco DevNet Learning Lab reference for getting the Webex Room Id: 
-https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
+  ```
+  https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
+  ```
