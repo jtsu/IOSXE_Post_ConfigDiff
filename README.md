@@ -34,7 +34,7 @@ Configure the EEM Applet on the switch.
   action 1.0 cli command "guestshell run python test.py"
   ```
 
-## Guestshell setup
+## GuestShell Setup
 IOX needs to be enable for guestshell.
   ```
   iox
