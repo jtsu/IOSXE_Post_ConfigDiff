@@ -3,23 +3,23 @@ This app will check for a config change and post the diff to a webex teams rooms
 
 ## Setup Overview
 This script requires the following:
-  1.  WebEx Teams
-      - A Cisco Communications and Messaging Application
-  2.  EEM in IOS-XE
-      - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
-  3.  GuestShell in IOS-XE
-      - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
-  4.  Python Script 
-      - process and post the config diff
-      - Our python script is in github: https://github.com/jtsu/vCSE_eem_webex_bot
+- WebEx Teams
+  - A Cisco Communications and Messaging Application
+- EEM in IOS-XE
+  - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
+- GuestShell in IOS-XE
+  - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
+- Python Script 
+  - process and post the config diff
+  - Our python script is in github: https://github.com/jtsu/vCSE_eem_webex_bot
 
 
 ## WebEx Teams Setup
-Create a simple bot and write down the access token.
+- Create a simple bot and write down the access token.
   - Version 1 of this bot is not interactive.  The bot is only used to post messages to the WebEx Teams Room.
   - Copy the bot's Access Token to the python module, 'mytokens.py'.
   - See references below for information on creating a bot.
-Create a webex Teams room and get the Room Id.
+- Create a webex Teams room and get the Room Id.
   - This is where the bot will be posting messages about the config diff on the switch.
   - Copy room id to the python module, 'mytokens.py'.
   - See references below for information on getting the Room Id.
