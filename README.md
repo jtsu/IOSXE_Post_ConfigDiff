@@ -35,31 +35,33 @@ This is the IOS-XE Configuration for EEM Applet.  Enter config mode on the IOS-X
 ## GuestShell Setup
 - IOX needs to be enable for guestshell.
   ```
-  Type 'iox' in the IOS-XE CLI.
+  Type 'iox' on the IOS-XE CLI.
   ```
 
 - Enable guestshell.
   ```
-  Type 'guestshell enable' in the IOS-XE CLI.
+  Type 'guestshell enable' on the IOS-XE CLI.
   ```
 
 - Enter guestshell to install python  modules and setup DNS.
   ```
-  Type 'guestshell' in the IOS-XE CLI.
+  Type 'guestshell' on the IOS-XE CLI.
   ```
 
-- You should now be in GuestShell and will then configuring the DNS Name Server.
+- You should now be in GuestShell.  Type the following in the shell CLI to configure the DNS Name Server.
   ```
   echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
 
-- From within GuestShell, install the python requests module.
+- Remain in GuestShell and install the python requests module.
   ```
   sudo pip install requests
   ```
 
 - Copy the python script to the EEM user policy directory.  
-  - You can copy the script to a directory in guestshell or you can create a directory on the flash from the IOS-XE CLI.
+  - You can copy the script to a directory in GuestShell or you can create a directory on the flash from the IOS-XE CLI.
+  - In the EEM config above, the script is located in the home path on GuestShell.
+  - If you would like to copy the script to the bootflash, use the absolute path in the EEM config.
 
 - Exit GuestShell and return to IOS-XE
   ```
