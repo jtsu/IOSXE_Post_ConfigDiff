@@ -10,7 +10,7 @@ This script requires the following:
 - GuestShell in IOS-XE
   - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
 - Python Script 
-  - This is the part of our app that will process and post the config diff.
+  - This is the part of the app that will process and post the config diff to WebEx Teams.
 
 ## WebEx Teams Setup
 - Create a simple bot and write down the access token.
