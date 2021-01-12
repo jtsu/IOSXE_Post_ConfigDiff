@@ -7,10 +7,8 @@ This script requires the following:
       - A Cisco Communications and Messaging Application
   2.  EEM in IOS-XE
       - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
-      - Here's a Blog reference: https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479#:~:text=The%20EEM(Embedded%20Event%20manager,minor%20enhancements%20and%20create%20workarounds
   3.  GuestShell in IOS-XE
       - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within Guest Shell you and your applications have access to the networks of the host platform, bootflash, and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
-      - Here's a Blog reference: https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394
   4.  Python Script 
       - process and post the config diff
       - Our python script is in github: https://github.com/jtsu/vCSE_eem_webex_bot
@@ -78,6 +76,11 @@ Time to run the app by making a configuration change on the switch. Log in to we
 **NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog message.
 
 ## References
-Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app.  
-Patrick's original script can be found here: https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark
+Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  
+https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark
 
+Thanks to Ashish (ashirkar) for his blog post on EEM:
+https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479#:~:text=The%20EEM(Embedded%20Event%20manager,minor%20enhancements%20and%20create%20workarounds
+
+Thanks to Hank Preston for his blog post on GuestShell:
+https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394
