@@ -3,7 +3,7 @@ This app will check for a config change and post the diff to a webex teams rooms
 
 ## Setup Overview
 This script requires the following:
-  1.  Webex Teams
+  1.  WebEx Teams
       - A Cisco Communications and Messaging Application
   2.  EEM in IOS-XE
       - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
@@ -15,18 +15,17 @@ This script requires the following:
 
 
 ## WebEx Teams Setup
-Create a simple bot and write down the access token
-  - version 1 of this bot is not interactive
-  - just used to send messages to the WebEx Room
-  - reference: https://developer.webex.com/docs/bots
-Create a webex Teams room and get the Room ID
-  - This is where the bot will be posting messages about the switch being monitored
-  - reference: https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
-Copy bot's access token and room id to the python module, 'mytokens.py'
-
+Create a simple bot and write down the access token.
+  - Version 1 of this bot is not interactive.  The bot is only used to post messages to the WebEx Teams Room.
+  - Copy the bot's Access Token to the python module, 'mytokens.py'.
+  - See references below for information on creating a bot.
+Create a webex Teams room and get the Room Id.
+  - This is where the bot will be posting messages about the config diff on the switch.
+  - Copy room id to the python module, 'mytokens.py'.
+  - See references below for information on getting the Room Id.
 
 ## EEM Setup
-Configure the EEM Applet on the switch
+Configure the EEM Applet on the switch.
   ```
   event manager session cli username "developer"
   event manager applet test
@@ -36,44 +35,43 @@ Configure the EEM Applet on the switch
   ```
 
 ## Guestshell setup
-IOX needs to be enable for guestshell
+IOX needs to be enable for guestshell.
   ```
   iox
   ```
 
-Then enable guestshell
+Then enable guestshell.
   ```
   guestshell enable
   ```
 
-Enter guestsheel  to install python  modules and setup DNS
+Enter guestshell to install python  modules and setup DNS.
   ```
   guestshell
   ```
 
-Config guestshell DNS
+Config guestshell DNS.
   ```
   echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
 
-Install requests module
+Install requests module.
   ```
   sudo pip install requests
   ```
 
 Copy the python script to the EEM user policy directory.
 
-**NOTE:** You can copy the script to a directory in guestshell or you can create a
-directory on the flash from the IOS-XE CLI.
+**NOTE:** You can copy the script to a directory in guestshell or you can create a directory on the flash from the IOS-XE CLI.
 
 You can type `exit` to return to IOS-XE.
 
-**NOTE:** The guestshell environment will persist across reboots.  It will not revert to the default state unless you do a `guestshell destory` followed by another `guestshell enable`.
+**NOTE:** The guestshell environment will persist across reboots.  It will not revert to the default state unless you do a `guestshell destory` and enable guestshell again.
 
 ## Run the app
-Time to run the app by making a configuration change on the switch. Log in to webex teams and check your teams room for the message.
+Time to run the app by making a configuration change on the switch. Login to WebEx Teams and check your Teams room for the message.
 
-**NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog message.
+**NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog pattern.
 
 ## References
 Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  
@@ -84,3 +82,9 @@ https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and
 
 Thanks to Hank Preston for his blog post on GuestShell:
 https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394
+
+Cisco Reference link to create a WebEx Teams Bot:
+https://developer.webex.com/docs/bots
+
+Cisco DevNet Learning Lab reference for getting the Webex Room Id: 
+https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
