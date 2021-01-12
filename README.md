@@ -63,7 +63,7 @@ Configure the EEM Applet on the switch.
 
 - Exit GuestShell and return to IOS-XE
   ```
-  type `exit`
+  type `exit`.
   ```
  
 **NOTE:** The guestshell environment will persist across reboots.  To return to a default state, destory the guestshell and enable guestshell again.
