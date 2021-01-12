@@ -66,7 +66,7 @@ Configure the EEM Applet on the switch.
   type `exit`
   ```
  
-**NOTE:** The guestshell environment will persist across reboots.  It will not revert to the default state unless you do a `guestshell destory` and enable guestshell again.
+**NOTE:** The guestshell environment will persist across reboots.  To return to a default state, destory the guestshell and enable guestshell again.
 
 ## Run the app
 Time to run the app by making a configuration change on the switch. Login to WebEx Teams and check your Teams room for the message.
