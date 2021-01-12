@@ -31,13 +31,13 @@ Copy bot's access token and room id to the python module, 'mytokens.py'
 
 ## EEM Setup
 Configure the EEM Applet on the switch
-'''
-event manager session cli username "developer"
-event manager applet test
- event syslog pattern "%SYS-5-CONFIG_I: Configured from" maxrun 200
- action 0.0 cli command "en"
- action 1.0 cli command "guestshell run python test.py"
-'''
+  '''
+  event manager session cli username "developer"
+  event manager applet test
+  event syslog pattern "%SYS-5-CONFIG_I: Configured from" maxrun 200
+  action 0.0 cli command "en"
+  action 1.0 cli command "guestshell run python test.py"
+  '''
 
 ## Guestshell setup
 IOX needs to be enable for guestshell
