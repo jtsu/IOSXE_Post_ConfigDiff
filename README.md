@@ -41,29 +41,29 @@ Configure the EEM Applet on the switch
 
 ## Guestshell setup
 IOX needs to be enable for guestshell
-  '''
+  ```
   iox
-  '''
+  ```
 
 Then enable guestshell
-  '''
+  ```
   guestshell enable
-  '''
+  ```
 
 Enter guestsheel  to install python  modules and setup DNS
-  '''
+  ```
   guestshell
-  '''
+  ```
 
 Config guestshell DNS
-  '''
+  ```
   echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
-  '''
+  ```
 
 Install requests Module
-  '''
+  ```
   sudo pip install requests
-  '''
+  ```
 
 Copy the python script to the EEM user policy directory.
 
