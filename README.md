@@ -8,7 +8,7 @@ This script requires the following:
   2.  EEM in IOS-XE
       - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
   3.  GuestShell in IOS-XE
-      - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within Guest Shell you and your applications have access to the networks of the host platform, bootflash, and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
+      - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
   4.  Python Script 
       - process and post the config diff
       - Our python script is in github: https://github.com/jtsu/vCSE_eem_webex_bot
