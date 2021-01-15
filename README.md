@@ -86,7 +86,7 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v# guestshell
   ```
 
-- Optional: If you don't want to configure DNS Name Server in IOX-XE, you can also configure that directly in the GuestShell environment.
+- Optional: We have already defined a DNS Name Server in the app-hosting config for GuestShell, so this step isn't needed. But if you didn't want to configure DNS from IOX-XE, you could configure it directly in the GuestShell environment.  
   ```
   [guestshell@guestshell ~]$ echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
@@ -118,8 +118,9 @@ This is the IOS-XE Configuration for EEM Applet.
 
 
 ## Optional - System Proxy Settings for GuestShell
+If a proxy server is needed in your enviroment, you'll need to configure the following proxy settings in GuestShell. 
 
-- If a proxy server is needed, add the proxy settings to the system profile inside GuestShell.  First create a proxy.sh shell script.
+- Create a proxy.sh shell script to add the proxy settings to the system profile.
   ```
   [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
   ```
