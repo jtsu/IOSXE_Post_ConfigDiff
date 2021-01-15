@@ -5,9 +5,7 @@ import sys
 import os
 import mytokens
 
-#  Function for passing a message to the WebEx Teams 
-
-
+# Function for posting the message to the WebEx Teams Rooms
 def send_it(token, room_id, message):
     header = {"Authorization": "Bearer %s" % token,
               "Content-Type": "application/json"}
@@ -22,7 +20,7 @@ def send_it(token, room_id, message):
    #return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
    return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, proxies=proxyDict, data=json.dumps(data), verify=True)
 
-# Post mesages to WebEx Teams 
+# Function to send the message to WebEx Teams 
 def post(message):
     res = send_it(token, teams_room, message)
     if res.status_code == 200:
