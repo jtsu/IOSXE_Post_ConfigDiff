@@ -5,27 +5,23 @@ import sys
 import os
 import mytokens
 
-# IOS-XE EEM Config
-# Note: The c9k devnet sandbox uses command authorization
-'''
-event manager session cli username "developer"
-event manager applet test
- event syslog pattern "%SYS-5-CONFIG_I: Configured from" maxrun 200
- action 0.0 cli command "en"
- action 1.0 cli command "guestshell run python test.py"
-'''
+#  Function for passing a message to the WebEx Teams 
 
-# Simple Bot Function for passing messages to a room
+
 def send_it(token, room_id, message):
     header = {"Authorization": "Bearer %s" % token,
               "Content-Type": "application/json"}
     data = {"roomId": room_id,
             "text": message}
+   http_proxy  = "http://proxy.esl.cisco.com:8080"
+   proxyDict = { 
+                "http"  : http_proxy
+               }
+   
+   #return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
+   return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, proxies=proxyDict, data=json.dumps(data), verify=True)
 
-    return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
-
-
-# Now let's post our message to Webex Teams
+# Post mesages to WebEx Teams 
 def post(message):
     res = send_it(token, teams_room, message)
     if res.status_code == 200:
@@ -41,7 +37,6 @@ def post(message):
 
 
 if __name__ == '__main__':
-
 
     access_token = mytokens.access_token
     teams_room = mytokens.teams_room
