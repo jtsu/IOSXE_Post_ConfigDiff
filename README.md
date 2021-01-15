@@ -26,7 +26,7 @@ This app uses the following:
 This is the IOS-XE Configuration for EEM Applet.
   ```
   csr1000v# conf t
-  csr1000v(config-applet)# event manager applet test
+  csr1000v(config)# event manager applet test
   csr1000v(config-applet)# event syslog pattern "%SYS-5-CONFIG_I: Configured from" maxrun 200
   csr1000v(config-applet)# action 0.0 cli command "en"
   csr1000v(config-applet)# action 1.0 cli command "guestshell run python3 configDiff.py"
@@ -45,7 +45,7 @@ This is the IOS-XE Configuration for EEM Applet.
 - A VirtualPortGroup is used to enable the communication between IOS XE and the GuestShell container. 
   ```
   csr1000v# conf t
-  csr1000v# interface VirtualPortGroup 0
+  csr1000v(config)# interface VirtualPortGroup 0
   csr1000v(config-if)# ip address 192.168.1.1 255.255.255.0
   csr1000v(config-if)# end
   ```
@@ -53,38 +53,40 @@ This is the IOS-XE Configuration for EEM Applet.
 - Configure the network settings that will get passed to GuestShell when it's enabled.  
   ```
   csr1000v# conf t
-  csr1000v# app-hosting appid guestshell
+  csr1000v(config)# app-hosting appid guestshell
   csr1000v(config-app-hosting)# vnic gateway1 virtualportgroup 0 guest-interface 0 guest-ipaddress 192.168.1.2 netmask 255.255.255.0 gateway 192.168.1.1 name-server 208.67.222.222
   csr1000v(config-app-hosting)# end
   ```
 
 - Configure NAT if an access from the container to the outside world is needed.
   ```
-  conf t
-  interface VirtualPortGroup0
-   ip nat inside
+  csr1000v# conf t
+  csr1000v(config)# interface VirtualPortGroup0
+  csr1000v(config-if)#  ip nat inside
   !
-  interface GigabitEthernet1
-   ip nat outside
+  csr1000v(config-if)# interface GigabitEthernet1
+  csr1000v(config-if)#  ip nat outside
+  csr1000v(config-if)# exit
   !
-  ip access-list extended NAT-ACL
-   permit ip 192.168.1.0 0.0.0.255 any
+  csr1000v(config)# ip access-list extended NAT-ACL
+  csr1000v(config-ext-nacl)# permit ip 192.168.1.0 0.0.0.255 any
   !
-  ip nat inside source list NAT-ACL interface GigabitEthernet1 overload
+  csr1000v(config-if)# exit
+  csr1000v(config)# ip nat inside source list NAT-ACL interface GigabitEthernet1 overload
   end
   ```
 
-- Enable guestshell on the IOX-XE platform.
+- Enable GuestShell on the IOX-XE platform.
   ```
   csr1000v#guestshell enable
   ```
 
-- Enter guestshell to install python.
+- Enter GuestShell to install python and some needed modules.
   ```
   csr1000v# guestshell
   ```
 
-- Optional: If you don't want to configure DNS Name Server in IOX-XE, you can also configure that directly in GuestShell.
+- Optional: If you don't want to configure DNS Name Server in IOX-XE, you can also configure that directly in the GuestShell environment.
   ```
   [guestshell@guestshell ~]$ echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
@@ -94,7 +96,7 @@ This is the IOS-XE Configuration for EEM Applet.
   [guestshell@guestshell ~]$ echo "proxy=proxy.server.com:8080" | sudo tee --append /etc/yum.conf
 
   ```
-- Install the python and additional utilities.
+- Depending on the IOS-XE platform and version, you may need to install python and some additional utilities.
   ```
   [guestshell@guestshell ~]$ sudo yum update -y
   [guestshell@guestshell ~]$ sudo yum install -y nano python3 epel-release
