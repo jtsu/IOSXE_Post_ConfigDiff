@@ -109,12 +109,12 @@ This is the IOS-XE Configuration for EEM Applet.
   [guestshell@guestshell ~]$ sudo pip3 install --proxy proxy.server.com:8080 requests
   ```
 
-- Configure system proxy setting, if needed.
+- Configure system proxy settings, if a proxy is needed.
   ```
   [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
   ```
   
-- Parameter setting in the proxy.sh, if needed.
+- Parameters to configure in proxy.sh, if a proxy is needed.
   ```  
   PROXY_URL="http://proxy.server.com:8080/"
   export http_proxy="$PROXY_URL"
@@ -127,7 +127,7 @@ This is the IOS-XE Configuration for EEM Applet.
   export NO_PROXY="127.0.0.1,localhost"
   ```
   
-- Configure system proxy setting, if needed.
+- Source the profile to activate the proxy settings, if a proxy is needed.
   ```
   [guestshell@guestshell ~]$ source /etc/profile 
   [guestshell@guestshell ~]$ env | grep -i proxy
