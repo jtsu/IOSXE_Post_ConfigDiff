@@ -1,5 +1,5 @@
-# Building a custom app hosted on a Cisco Catalyst Switch.  
-This app will check for a config change and post the diff to a WebEx Teams Rooms.
+# Building a custom app hosted on Cisco IOX-XE platforms.  
+This app will check for a config change and post the diff to a WebEx Teams Rooms.  The app will also run on a Cisco IOS-XE switch or router, so no additional server resources are needed.
 
 ## Setup Overview
 This script requires the following:
