@@ -12,9 +12,10 @@ def send_it(token, room_id, message):
     header = {"Authorization": "Bearer %s" % token,
               "Content-Type": "application/json"}
     data = {"roomId": room_id,
-            "text": message}
-   http_proxy  = "http://proxy.esl.cisco.com:8080"
-   proxyDict = { 
+            "text": message} 
+    
+    http_proxy = mytokens.http_proxy
+    proxyDict = { 
                 "http"  : http_proxy
                }
    
