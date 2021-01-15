@@ -114,7 +114,7 @@ This is the IOS-XE Configuration for EEM Applet.
 
 - Exit GuestShell and return to IOS-XE
   ```
-  type `exit`.
+  [guestshell@guestshell ~]$ exit
   ```
  
 **NOTE:** The guestshell environment will persist across reboots.  To return to a default state, destory the guestshell and enable guestshell again.
