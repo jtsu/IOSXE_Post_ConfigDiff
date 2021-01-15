@@ -78,7 +78,7 @@ This is the IOS-XE Configuration for EEM Applet.
 
 - Enable GuestShell on the IOX-XE platform.
   ```
-  csr1000v#guestshell enable
+  csr1000v# guestshell enable
   ```
 
 - Enter GuestShell to install python and some needed modules.
@@ -122,14 +122,14 @@ This is the IOS-XE Configuration for EEM Applet.
 **NOTE:** The guestshell environment will persist across reboots.  To return to a default state, destory the guestshell and enable guestshell again.
 
 
-## Optional - System Proxy Settings
+## Optional - System Proxy Settings for GuestShell
 
-- If a proxy is needed, add the proxy settings to the system profile.
+- If a proxy server is needed, add the proxy settings to the system profile inside GuestShell.  First create a proxy.sh shell script.
   ```
   [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
   ```
   
-- Add the following parameters in to proxy.sh.
+- Add the following parameters in to proxy.sh shell script.
   ```  
   PROXY_URL="http://proxy.server.com:8080/"
   export http_proxy="$PROXY_URL"
