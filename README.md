@@ -152,7 +152,7 @@ Time to run the app by making a configuration change on the switch. Login to Web
   https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
   ```
   
-- GuestShell Learning Lab on Cisco DevNet
+- GuestShell Learning Lab on Cisco DevNet is a good resource for learning more about GuestShell and getting more details on how to configure it.
   ```
   https://developer.cisco.com/learning/modules/net_app_hosting
 
