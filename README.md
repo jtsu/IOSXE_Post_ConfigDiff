@@ -109,6 +109,30 @@ This is the IOS-XE Configuration for EEM Applet.
   [guestshell@guestshell ~]$ sudo pip3 install --proxy proxy.server.com:8080 requests
   ```
 
+- Configure system proxy setting, if needed.
+  ```
+  [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
+  ```
+  
+- Parameter setting in the proxy.sh, if needed.
+  ```  
+  PROXY_URL="http://proxy.server.com:8080/"
+  export http_proxy="$PROXY_URL"
+  export https_proxy="$PROXY_URL"
+  export ftp_proxy="$PROXY_URL"
+  export no_proxy="127.0.0.1,localhost"
+  export HTTP_PROXY="$PROXY_URL"
+  export HTTPS_PROXY="$PROXY_URL"
+  export FTP_PROXY="$PROXY_URL"
+  export NO_PROXY="127.0.0.1,localhost"
+  ```
+  
+- Configure system proxy setting, if needed.
+  ```
+  [guestshell@guestshell ~]$ source /etc/profile 
+  [guestshell@guestshell ~]$ env | grep -i proxy
+  ```
+
 - Copy the python script to the EEM user policy directory.  
   - You can copy the script to a directory in GuestShell or you can create a directory on the flash from the IOS-XE CLI.
   - In the EEM config above, the script is located in the home path on GuestShell.
