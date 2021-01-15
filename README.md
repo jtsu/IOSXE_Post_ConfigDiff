@@ -106,7 +106,7 @@ This is the IOS-XE Configuration for EEM Applet.
 
 - Install the python requests module, and use the optional proxy, if needed.
   ```
-  [guestshell@guestshell ~]$ pip install --proxy proxy.server.com:8080 requests
+  [guestshell@guestshell ~]$ sudo pip3 install --proxy proxy.server.com:8080 requests
   ```
 
 - Copy the python script to the EEM user policy directory.  
