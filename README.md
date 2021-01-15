@@ -108,31 +108,7 @@ This is the IOS-XE Configuration for EEM Applet.
   ```
   [guestshell@guestshell ~]$ sudo pip3 install --proxy proxy.server.com:8080 requests
   ```
-
-- Configure system proxy settings, if a proxy is needed.
-  ```
-  [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
-  ```
   
-- Parameters to configure in proxy.sh, if a proxy is needed.
-  ```  
-  PROXY_URL="http://proxy.server.com:8080/"
-  export http_proxy="$PROXY_URL"
-  export https_proxy="$PROXY_URL"
-  export ftp_proxy="$PROXY_URL"
-  export no_proxy="127.0.0.1,localhost"
-  export HTTP_PROXY="$PROXY_URL"
-  export HTTPS_PROXY="$PROXY_URL"
-  export FTP_PROXY="$PROXY_URL"
-  export NO_PROXY="127.0.0.1,localhost"
-  ```
-  
-- Source the profile to activate the proxy settings, if a proxy is needed.
-  ```
-  [guestshell@guestshell ~]$ source /etc/profile 
-  [guestshell@guestshell ~]$ env | grep -i proxy
-  ```
-
 - Copy the python script to the EEM user policy directory.  
   - You can copy the script to a directory in GuestShell or you can create a directory on the flash from the IOS-XE CLI.
   - In the EEM config above, the script is located in the home path on GuestShell.
@@ -145,10 +121,39 @@ This is the IOS-XE Configuration for EEM Applet.
  
 **NOTE:** The guestshell environment will persist across reboots.  To return to a default state, destory the guestshell and enable guestshell again.
 
+
+## Optional - System Proxy Settings
+
+- If a proxy is needed, add the proxy settings to the system profile.
+  ```
+  [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
+  ```
+  
+- Add the following parameters in to proxy.sh.
+  ```  
+  PROXY_URL="http://proxy.server.com:8080/"
+  export http_proxy="$PROXY_URL"
+  export https_proxy="$PROXY_URL"
+  export ftp_proxy="$PROXY_URL"
+  export no_proxy="127.0.0.1,localhost"
+  export HTTP_PROXY="$PROXY_URL"
+  export HTTPS_PROXY="$PROXY_URL"
+  export FTP_PROXY="$PROXY_URL"
+  export NO_PROXY="127.0.0.1,localhost"
+  ```
+  
+- Source the profile to activate the proxy settings.
+  ```
+  [guestshell@guestshell ~]$ source /etc/profile 
+  [guestshell@guestshell ~]$ env | grep -i proxy
+  ```
+
+
 ## Run the app
 Time to run the app by making a configuration change on the switch. Login to WebEx Teams and check your Teams room for the message.
 
 **NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog pattern.
+
 
 ## References
 - Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  
