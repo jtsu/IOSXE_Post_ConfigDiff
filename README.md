@@ -91,11 +91,6 @@ This is the IOS-XE Configuration for EEM Applet.
   [guestshell@guestshell ~]$ echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
   
-- Optional: If your envirorment requires a proxy, be sure to configure your proxy setting in GuestShell.
-  ```
-  [guestshell@guestshell ~]$ echo "proxy=proxy.server.com:8080" | sudo tee --append /etc/yum.conf
-
-  ```
 - Depending on the IOS-XE platform and version, you may need to install python and some additional utilities.
   ```
   [guestshell@guestshell ~]$ sudo yum update -y
@@ -148,6 +143,11 @@ This is the IOS-XE Configuration for EEM Applet.
   [guestshell@guestshell ~]$ env | grep -i proxy
   ```
 
+-  Configure the proxy server for the Yum package manager.
+  ```
+  [guestshell@guestshell ~]$ echo "proxy=proxy.server.com:8080" | sudo tee --append /etc/yum.conf
+
+  ```
 
 ## Run the app
 Time to run the app by making a configuration change on the switch. Login to WebEx Teams and check your Teams room for the message.
