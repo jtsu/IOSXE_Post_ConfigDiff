@@ -2,7 +2,7 @@
 This app will check for a config change and post the diff to a WebEx Teams Rooms.  The app will also run on a Cisco IOS-XE switch or router, so no additional server resources are needed.
 
 ## Setup Overview
-This script requires the following:
+This app uses the following:
 - WebEx Teams
   - A Cisco Communications and Messaging Application.
 - EEM in IOS-XE
@@ -23,39 +23,88 @@ This script requires the following:
   - See references below for information on getting the Room Id.
 
 ## EEM Setup
-This is the IOS-XE Configuration for EEM Applet.  Enter config mode on the IOS-XE CLI, and add the following config:
+This is the IOS-XE Configuration for EEM Applet.
   ```
-  event manager session cli username "developer"
-  event manager applet test
-  event syslog pattern "%SYS-5-CONFIG_I: Configured from" maxrun 200
-  action 0.0 cli command "en"
-  action 1.0 cli command "guestshell run python test.py"
+  csr1000v# conf t
+  csr1000v(config-applet)# event manager applet test
+  csr1000v(config-applet)# event syslog pattern "%SYS-5-CONFIG_I: Configured from" maxrun 200
+  csr1000v(config-applet)# action 0.0 cli command "en"
+  csr1000v(config-applet)# action 1.0 cli command "guestshell run python3 configDiff.py"
+  csr1000v(config-applet)# end
   ```
 
 ## GuestShell Setup
-- IOX needs to be enable for guestshell.
+- IOX needs to be enable on the IOX-XE platform for GuestShell.
   ```
-  Type 'iox' on the IOS-XE CLI.
+  csr1000v# conf t
+  Enter configuration commands, one per line.  End with CNTL/Z.
+  csr1000v(config)# iox
+  csr1000v(config)# end
   ```
-
-- Enable guestshell.
+  
+- A VirtualPortGroup is used to enable the communication between IOS XE and the GuestShell container. 
   ```
-  Type 'guestshell enable' on the IOS-XE CLI.
-  ```
-
-- Enter guestshell to install python  modules and setup DNS.
-  ```
-  Type 'guestshell' on the IOS-XE CLI.
-  ```
-
-- You should now be in GuestShell.  Type the following in the shell CLI to configure the DNS Name Server.
-  ```
-  echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
+  csr1000v# conf t
+  csr1000v# interface VirtualPortGroup 0
+  csr1000v(config-if)# ip address 192.168.1.1 255.255.255.0
+  csr1000v(config-if)# end
   ```
 
-- Remain in GuestShell and install the python requests module.
+- Configure the network settings that will get passed to GuestShell when it's enabled.  
   ```
-  sudo pip install requests
+  csr1000v# conf t
+  csr1000v# app-hosting appid guestshell
+  csr1000v(config-app-hosting)# vnic gateway1 virtualportgroup 0 guest-interface 0 guest-ipaddress 192.168.1.2 netmask 255.255.255.0 gateway 192.168.1.1 name-server 208.67.222.222
+  csr1000v(config-app-hosting)# end
+  ```
+
+- Configure NAT if an access from the container to the outside world is needed.
+  ```
+  conf t
+  interface VirtualPortGroup0
+   ip nat inside
+  !
+  interface GigabitEthernet1
+   ip nat outside
+  !
+  ip access-list extended NAT-ACL
+   permit ip 192.168.1.0 0.0.0.255 any
+  !
+  ip nat inside source list NAT-ACL interface GigabitEthernet1 overload
+  end
+  ```
+
+- Enable guestshell on the IOX-XE platform.
+  ```
+  csr1000v#guestshell enable
+  ```
+
+- Enter guestshell to install python.
+  ```
+  csr1000v# guestshell
+  ```
+
+- Optional: If you don't want to configure DNS Name Server in IOX-XE, you can also configure that directly in GuestShell.
+  ```
+  [guestshell@guestshell ~]$ echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
+  ```
+  
+- Optional: If your envirorment requires a proxy, be sure to configure your proxy setting in GuestShell.
+  ```
+  [guestshell@guestshell ~]$ echo "proxy=proxy.server.com:8080" | sudo tee --append /etc/yum.conf
+
+  ```
+- Install the python and additional utilities.
+  ```
+  [guestshell@guestshell ~]$ sudo yum update -y
+  [guestshell@guestshell ~]$ sudo yum install -y nano python3 epel-release
+  [guestshell@guestshell ~]$ sudo yum search pip | grep python3
+  [guestshell@guestshell ~]$ sudo yum install -y python3-pip
+  ```
+
+- Install the python requests module, and use the optional proxy, if needed.
+  ```
+  [guestshell@guestshell ~]$ pip install --proxy proxy.server.com:8080 requests
   ```
 
 - Copy the python script to the EEM user policy directory.  
@@ -99,4 +148,10 @@ Time to run the app by making a configuration change on the switch. Login to Web
 - Cisco DevNet Learning Lab reference for getting the Webex Room Id: 
   ```
   https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
+  ```
+  
+- GuestShell Learning Lab on Cisco DevNet
+  ```
+  https://developer.cisco.com/learning/modules/net_app_hosting
+
   ```
