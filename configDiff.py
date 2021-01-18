@@ -17,8 +17,8 @@ def send_it(token, room_id, message):
                 "http"  : http_proxy
                }
    
-   #return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
-   return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, proxies=proxyDict, data=json.dumps(data), verify=True)
+    #return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
+    return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, proxies=proxyDict, data=json.dumps(data), verify=True)
 
 # Function to send the message to WebEx Teams 
 def post(message):
