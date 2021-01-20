@@ -5,58 +5,59 @@ import sys
 import os
 import mytokens
 
-# Function for posting the message to the WebEx Teams Rooms
-def send_it(token, room_id, message):
-    header = {"Authorization": "Bearer %s" % token,
-              "Content-Type": "application/json"}
-    data = {"roomId": room_id,
-            "text": message} 
-    
-    http_proxy = mytokens.http_proxy
-    proxyDict = { 
-                "http"  : http_proxy
-               }
-   
-    #return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
-    return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, proxies=proxyDict, data=json.dumps(data), verify=True)
+clients = {}
+clients['WebEx Teams'] = {
+    "url": "https://api.ciscospark.com/v1/messages/",
+    "headers": {"Authorization": "Bearer %s" % mytokens.access_token, "Content-Type": "application/json"},
+    "data": {"roomId": mytokens.teams_room, "text": ""}
+}
+clients['Slack'] = {
+    "url": mytokens.slack_webhook_url,
+    "headers": {"Content-Type": "application/json"},
+    "data": {"text": ""}
+}
 
-# Function to send the message to WebEx Teams 
+use_proxy = True
+
+http_proxy = mytokens.http_proxy
+proxyDict = {
+    "http"  : http_proxy
+}
+
+# Function for posting the message to the collaboration client
 def post(message):
-    res = send_it(token, teams_room, message)
-    if res.status_code == 200:
-        print("your message was successfully posted to Webex Teams")
-    else:
-        print("failed with statusCode: %d" % res.status_code)
-        if res.status_code == 404:
-            print ("please check the bot is in the room you're attempting to post to...")
-        elif res.status_code == 400:
-            print ("please check the identifier of the room you're attempting to post to...")
-        elif res.status_code == 401:
-            print ("please check if the access token is correct...")
 
+    for key, value in clients.items():
+        clients[key]["data"]["text"] = message
+
+        if use_proxy:
+            response = requests.post(clients[key]["url"], \
+            headers=clients[key]["headers"], \
+            proxies=proxyDict, \
+            data=json.dumps(clients[key]["data"]), \
+            verify=True)
+        else:
+            response = requests.post(clients[key]["url"], \
+            headers=clients[key]["headers"], \
+            data=json.dumps(clients[key]["data"]), \
+            verify=True)
+
+        if response.status_code == 200:
+            print("Successfully posted to %s." % key)
+            print("  Status Code: %d" % response.status_code)
+        else:
+            print("Failed to post to %s." % key)
+            print("  Status Code: %d" % response.status_code)
 
 if __name__ == '__main__':
 
-    access_token = mytokens.access_token
-    teams_room = mytokens.teams_room
-
-    # Check access token
-    teams_access_token = os.environ.get("TEAMS_ACCESS_TOKEN")
-    token = access_token if access_token else teams_access_token
-    if not token:
-        error_message = "You must provide a Webex Teams API access token."
-        print(error_message)
-        sys.exit(2)
-
-
-    # The sandbox doesn't have startup config and blocks you from create it, so just get a running config
-    #create baseline config file if none exist
+    #creates baseline config using the current running-config, if it doesn't exist.
     if os.path.isfile("startup.cfg") == False:
         startCfg = cli.execute("show run")
         with open("startup.cfg", "w") as f:
             f.write(startCfg)
 
-    #write current running config to file
+    #write current running-config to file
     runCfg = cli.execute("show run")
     with open("running.cfg", "w") as f:
         f.write(runCfg)
@@ -66,5 +67,5 @@ if __name__ == '__main__':
     diffCfg = os.popen("sdiff -l startup.cfg running.cfg | cat -n | grep -v -e '($'")
     diff = diffCfg.read()
 
-    #post the diff as a message to the webex team's room
-    post("Diff between baseline config and current running-config. \n\n" + diff)
+    #post the diff as a message to the WebEx Teams room
+    post("Diff between baseline switch config and current running-config. \n\n" + diff)
