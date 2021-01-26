@@ -54,7 +54,7 @@ This is the IOS-XE Configuration for EEM Applet.
   ```
   csr1000v# conf t
   csr1000v(config)# app-hosting appid guestshell
-  csr1000v(config-app-hosting)# vnic gateway1 virtualportgroup 0 guest-interface 0 guest-ipaddress 192.168.1.2 netmask 255.255.255.0 gateway 192.168.1.1 name-server 208.67.222.222
+  csr1000v(config-app-hosting)# vnic gateway1 virtualportgroup 0 guest-interface 0 guest-ipaddress 192.168.1.2 netmask 255.255.255.0 gateway 192.168.1.1 name-server 208.67.222.222 default
   csr1000v(config-app-hosting)# end
   ```
 
@@ -73,7 +73,7 @@ This is the IOS-XE Configuration for EEM Applet.
   !
   csr1000v(config-if)# exit
   csr1000v(config)# ip nat inside source list NAT-ACL interface GigabitEthernet1 overload
-  end
+  csr1000v(config)# end
   ```
 
 - Enable GuestShell on the IOX-XE platform.
