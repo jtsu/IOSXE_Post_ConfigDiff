@@ -6,16 +6,34 @@ import os
 import mytokens
 
 clients = {}
-clients['WebEx Teams'] = {
-    "url": "https://api.ciscospark.com/v1/messages/",
-    "headers": {"Authorization": "Bearer %s" % mytokens.access_token, "Content-Type": "application/json"},
-    "data": {"roomId": mytokens.teams_room, "text": ""}
+
+# webhooks
+clients['WebEx'] = {
+    "url": mytokens.webex_webhook_url,
+    "headers": {"Content-Type": "application/json"},
+    "data": {"text": ""}
 }
+
 clients['Slack'] = {
     "url": mytokens.slack_webhook_url,
     "headers": {"Content-Type": "application/json"},
     "data": {"text": ""}
 }
+
+clients['Microsoft Teams'] = {
+    "url": mytokens.microsoft_webhook_url,
+    "headers": {"Content-Type": "application/json"},
+    "data": {"text": ""}
+}
+
+'''
+# example if you don't plan to use webhooks
+clients['WebEx Teams'] = {
+    "url": "https://api.ciscospark.com/v1/messages/",
+    "headers": {"Authorization": "Bearer %s" % mytokens.access_token, "Content-Type": "application/json"},
+    "data": {"roomId": mytokens.teams_room, "text": ""}
+}
+'''
 
 use_proxy = True
 
@@ -42,7 +60,7 @@ def post(message):
             data=json.dumps(clients[key]["data"]), \
             verify=True)
 
-        if response.status_code == 200:
+        if response.status_code == 200 or response.status_code == 204:
             print("Successfully posted to %s." % key)
             print("  Status Code: %d" % response.status_code)
         else:
