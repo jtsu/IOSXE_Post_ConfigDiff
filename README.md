@@ -18,10 +18,10 @@ This app uses the following:
   - Webex Teams
   - Microsoft Teams
   - Slack
-- We're going to use Incoming Webhooks to post the config diffs to each client.  Incoming webhooks let you post messages when an event occurs in another service.
-- The steps to configure Incoming Webhooks is very similar for each of our three clients.
+- We're going to use *Incoming Webhooks* to post the config diffs to each client.  Incoming webhooks let you post messages when an event occurs in another service.
+- The steps to configure Incoming Webhooks are very similar for each of our three clients.
   - Create a room/team/channel in each client where our app will post the config diffs
-  - Connect the *Incoming Webhooks* App in each client.
+  - Connect the *Incoming Webhook(s)* App in each client.
   - Name and select the room/team/channel you created.
   - Copy each webhook URL to the python module, 'mytokens.py'.
 
