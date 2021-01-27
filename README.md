@@ -9,36 +9,21 @@ This app uses the following:
   - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
 - GuestShell in IOS-XE
   - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
-- Python Script 
+- Python Script
   - This is the part of the app that will process and post the config diff to Webex Teams.
 
 
-## Webex Incoming Webhooks Integration on Webex App Hub - Preferred method in this usecase
-- Webex Teams
-  - Create a Webex Teams room where the config diffs will get posted.
-  - Connect the *Incoming Webhooks* App in the Webex Teams client.
-  - Name and select the Webex Teams room you created.
-  - Copy the webhook URL to the python module, 'mytokens.py'.
-- Microsoft Team
-  - Create a team where the config diffs will be posted.
-  - Add the *Incoming Webhook* App in the Microsoft Teams client.
-  - Name and add the app to the team you created.
-  - Copy the webhook URL to the python module, 'mytokens.py'.
-- Slack
-  - Create a Channel where the config diffs will be posted.
-  - Add the *Incoming Webhooks* App in the Slack client.
-  - Choose a custom name and select the channel you created.
-  - Copy the Webhook URL to the python module, 'mytokens.py'.
-
-## Webex Bot Setup - Optional alternative to using incoming webhooks
-- Create a webex Teams room and get the Room Id.
-  - This is where the bot will be posting messages about the config diff on the switch.
-  - Copy room id to the python module, 'mytokens.py'.
-  - See references below for information on getting the Room Id.
-- Create a simple bot and write down the access token.
-  - Version 1 of this bot is not interactive.  The bot is only used to post messages to the WebEx Teams Room.
-  - Copy the bot's Access Token to the python module, 'mytokens.py'.
-  - See references below for information on creating a bot.
+## Collaboration Clients Setup  
+- In our app, we're going to post message to the following platforms:
+  - Webex Teams
+  - Microsoft Teams
+  - Slack
+- We're going to use Incoming Webhooks to post the config diffs to each client.  Incoming webhooks let you post messages when an event occurs in another service.
+- The steps to configure Incoming Webhooks is very similar for each of our three clients.
+  - Create a room/team/channel in each client where our app will post the config diffs
+  - Connect the *Incoming Webhooks* App in each client.
+  - Name and select the room/team/channel you created.
+  - Copy each webhook URL to the python module, 'mytokens.py'.
 
 ## EEM Setup
 This is the IOS-XE Configuration for EEM Applet.
@@ -59,8 +44,8 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v(config)# iox
   csr1000v(config)# end
   ```
-  
-- A VirtualPortGroup is used to enable the communication between IOS XE and the GuestShell container. 
+
+- A VirtualPortGroup is used to enable the communication between IOS XE and the GuestShell container.
   ```
   csr1000v# conf t
   csr1000v(config)# interface VirtualPortGroup 0
@@ -108,7 +93,7 @@ This is the IOS-XE Configuration for EEM Applet.
   ```
   [guestshell@guestshell ~]$ echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
-  
+
 - Depending on the IOS-XE platform and version, you may need to install python and some additional utilities.
   ```
   [guestshell@guestshell ~]$ sudo yum update -y
@@ -121,7 +106,7 @@ This is the IOS-XE Configuration for EEM Applet.
   ```
   [guestshell@guestshell ~]$ sudo pip3 install --proxy proxy.server.com:8080 requests
   ```
-  
+
 - Copy the python script to the EEM user policy directory.  
   - You can copy the script to a directory in GuestShell or you can create a directory on the flash from the IOS-XE CLI.
   - In the EEM config above, the script is located in the home path on GuestShell.
@@ -131,18 +116,18 @@ This is the IOS-XE Configuration for EEM Applet.
   ```
   [guestshell@guestshell ~]$ exit
   ```
- 
+
 **NOTE:** The guestshell environment will persist across reboots.  To return to a default state, destory the guestshell and enable guestshell again.
 
 
 ## Optional - System Proxy Settings for GuestShell
-If a proxy server is needed in your enviroment, you'll need to configure the following proxy settings in GuestShell. 
+If a proxy server is needed in your enviroment, you'll need to configure the following proxy settings in GuestShell.
 
 - Create a proxy.sh shell script to add the proxy settings to the system profile.
   ```
   [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
   ```
-  
+
 - Add the following parameters in to proxy.sh shell script.
   ```  
   PROXY_URL="http://proxy.server.com:8080/"
@@ -155,10 +140,10 @@ If a proxy server is needed in your enviroment, you'll need to configure the fol
   export FTP_PROXY="$PROXY_URL"
   export NO_PROXY="127.0.0.1,localhost"
   ```
-  
+
 - Source the profile to activate the proxy settings.
   ```
-  [guestshell@guestshell ~]$ source /etc/profile 
+  [guestshell@guestshell ~]$ source /etc/profile
   [guestshell@guestshell ~]$ env | grep -i proxy
   ```
 
@@ -200,11 +185,11 @@ Time to run the app by making a configuration change on the switch. Login to Web
   https://developer.webex.com/docs/bots
   ```
 
-- Cisco DevNet Learning Lab reference for getting the Webex Room Id: 
+- Cisco DevNet Learning Lab reference for getting the Webex Room Id:
   ```
   https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
   ```
-  
+
 - GuestShell Learning Lab on Cisco DevNet is a good resource for learning more about GuestShell and getting more details on how to configure it.
   ```
   https://developer.cisco.com/learning/modules/net_app_hosting
