@@ -11,19 +11,27 @@ This app uses the following:
   - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
 - Python Script 
   - This is the part of the app that will process and post the config diff to Webex Teams.
+- Webhooks
+  - 
 
-## Webex Incoming Webhooks Integration on Webex App Hub - Preferred Method in this Usecase
-- Create a Webex Teams room from the Webex Teams application.
-  - This is where we'll be posting messages about the config diff on the switch.
-- Create a simple bot and write down the access token.
-  - Connect the *Incoming Webhooks Integration* on Webex App Hub.
-    - Name the Webhook
-    - Select the Webex Teams room you created
-    - Click on Connect
+## Webex Incoming Webhooks Integration on Webex App Hub - Preferred method in this usecase
+- Webex Teams
+  - Create a Webex Teams room where the config diffs will get posted.
+  - Connect the *Incoming Webhooks* App in the Webex Teams client.
+  - Name and select the Webex Teams room you created.
   - Copy the webhook URL to the python module, 'mytokens.py'.
-  - See references below for information on connecting the *Incoming Webhooks Integration*.
+- Microsoft Team
+  - Create a team where the config diffs will be posted.
+  - Add the *Incoming Webhook* App in the Microsoft Teams client.
+  - Name and add the app to the team you created.
+  - Copy the webhook URL to the python module, 'mytokens.py'.
+- Slack
+  - Create a Channel where the config diffs will be posted.
+  - Add the *Incoming Webhooks* App in the Slack client.
+  - Choose a custom name and select the channel you created.
+  - Copy the Webhook URL to the python module, 'mytokens.py'.
 
-## Webex Bot Setup - Optional
+## Webex Bot Setup - Optional alternative to using incoming webhooks
 - Create a webex Teams room and get the Room Id.
   - This is where the bot will be posting messages about the config diff on the switch.
   - Copy room id to the python module, 'mytokens.py'.
