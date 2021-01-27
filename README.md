@@ -1,10 +1,20 @@
-# Building a custom app hosted on Cisco IOX-XE platforms.  
-This app will check for a config change and post the diff to a Webex Teams Rooms.  The app will also run on a Cisco IOS-XE switch or router, so no additional server resources are needed.
+# IOS-XE Post ConfigDiff
+This application uses the features and resources on the Cisco IOS-XE platforms.  The app will check for a config change and post the diff to a collaboration platform.  Currently the app will post messages to Webex Teams, Microsoft Teams, and Slack.  The app will also run directly on a Cisco IOS-XE switch or router, so no additional server resources are needed.
 
-## Setup Overview
+## Use Case Description
+Some times it can be difficult to identify exactly what config changes were make on a Cisco switch or router.  There are certainly applications on the market to help examine and identify configuration differences.  But it would be better to see and track an audit trail of the differences.
+
+We created a simple application that would track configuration changes and post those changes to a Webex Teams room.  With all the changes now posted in a room, it is very easy to scroll back in time to see what changes were made.  
+
+Webex Teams isn't universally used by all our customers, so we also wanted to incorporate some options in our app to post to other collaboration clients.  We included options to post messages to Microsoft Teams and Slack.
+
+One of the limitations we have is that we do our diff to a baseline config.  It would be great to have an option to see a diff to a prior version. 
+
+## Configuration Overview
 This app uses the following:
-- Webex Teams
+- Webex Teams  
   - A Cisco Communications and Messaging Application.
+  - Microsoft Teams or Slack can also be configured.
 - EEM in IOS-XE
   - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
 - GuestShell in IOS-XE
@@ -12,7 +22,7 @@ This app uses the following:
 - Python Script
   - This is the part of the app that will process and post the config diff to Webex Teams.
 
-## Collaboration Clients Setup  
+## Collaboration Clients Configuration  
 - In our app, we're going to post message to the following platforms:
   - Webex Teams
   - Microsoft Teams
@@ -24,7 +34,7 @@ This app uses the following:
   - Name and select the room/team/channel you created.
   - Copy each webhook URL to the python module, 'mytokens.py'.
 
-## EEM Setup
+## EEM Configuration
 This is the IOS-XE Configuration for EEM Applet.
   ```
   csr1000v# conf t
@@ -35,7 +45,7 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v(config-applet)# end
   ```
 
-## GuestShell Setup
+## GuestShell Configuration
 - IOX needs to be enable on the IOX-XE platform for GuestShell.
   ```
   csr1000v# conf t
@@ -119,7 +129,7 @@ This is the IOS-XE Configuration for EEM Applet.
 **NOTE:** The guestshell environment will persist across reboots.  To return to a default state, destory the guestshell and enable guestshell again.
 
 
-## Optional - System Proxy Settings for GuestShell
+## Optional Configuration - System Proxy Settings for GuestShell
 If a proxy server is needed in your enviroment, you'll need to configure the following proxy settings in GuestShell.
 
 - Create a proxy.sh shell script to add the proxy settings to the system profile.
@@ -152,13 +162,20 @@ If a proxy server is needed in your enviroment, you'll need to configure the fol
 
   ```
 
-## Run the app
-Time to run the app by making a configuration change on the switch. Login to WebEx Teams and check your Teams room for the message.
+## Usage
+To see the app in action, simply make a configuration change on the switch on your Cisco switch or router.  For example, you can change the description of an interface.
+  ```
+  csr1000v# conf t
+  csr1000v(config)# interface GigabitEthernet3 
+  csr1000v(config-if)# description Test Interface
+  csr1000v(config-if)# end
+  ```
+Then you just need to ogin to WebEx Teams, or your collaboration platform of choice, and check your room for the message.
 
 **NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog pattern.
 
 
-## References
+## References and Getting Help
 - Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  
   ```
   https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark
@@ -194,3 +211,15 @@ Time to run the app by making a configuration change on the switch. Login to Web
   https://developer.cisco.com/learning/modules/net_app_hosting
 
   ```
+  
+## Author(s)
+  
+This project was written and is maintained by the following individuals:
+* Jason Su <jtsu@cisco.com>
+* Dennis Tran <dentran@cisco.com>
+* Matt Jennings <matjenni@cisco.com>
+* Steven Tanti <stanti@cisco.com>
+
+
+
+
