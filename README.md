@@ -177,7 +177,7 @@ Then you just need to login to WebEx Teams, or your preferred collaboration clie
 
 ## References 
 
-Here's are some references for learning more about the features used in our app.
+Here's are some references for information more about the features used in our app.
 
 * Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  [eem_configdiff_to_spark](https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark)
 * Thanks to Ashish (ashirkar) for his blog post shared on Cisco Community:
@@ -188,7 +188,7 @@ Here's are some references for learning more about the features used in our app.
 
 ## Getting Help
 
-Here's are some Cisco DevNet and Developers links for additional learning and information.
+Here's are some Cisco DevNet and Developers links for additional learning and configuration.
 * [Webex Teams Bot](https://developer.webex.com/docs/bots)
 * [Chat-Ops with Webex and Python](https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/1)
 * [Introduction to Guestshell on IOS XE](https://developer.cisco.com/learning/modules/net_app_hosting)
