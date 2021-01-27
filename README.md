@@ -189,7 +189,7 @@ Here's are some references for learning more about the features used in our app.
 ## Getting Help
 
 Here's are some Cisco DevNet and Developers links for additional learning and information.
-* [Cisco Reference link to create a WebEx Teams Bot](https://developer.webex.com/docs/bots)
+* [Webex Teams Bot](https://developer.webex.com/docs/bots)
 * [Chat-Ops with Webex and Python](https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/1)
 * [Introduction to Guestshell on IOS XE](https://developer.cisco.com/learning/modules/net_app_hosting)
 
