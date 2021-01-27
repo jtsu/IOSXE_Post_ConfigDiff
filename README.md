@@ -1,26 +1,37 @@
 # Building a custom app hosted on Cisco IOX-XE platforms.  
-This app will check for a config change and post the diff to a WebEx Teams Rooms.  The app will also run on a Cisco IOS-XE switch or router, so no additional server resources are needed.
+This app will check for a config change and post the diff to a Webex Teams Rooms.  The app will also run on a Cisco IOS-XE switch or router, so no additional server resources are needed.
 
 ## Setup Overview
 This app uses the following:
-- WebEx Teams
+- Webex Teams
   - A Cisco Communications and Messaging Application.
 - EEM in IOS-XE
   - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
 - GuestShell in IOS-XE
   - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
 - Python Script 
-  - This is the part of the app that will process and post the config diff to WebEx Teams.
+  - This is the part of the app that will process and post the config diff to Webex Teams.
 
-## WebEx Teams Setup
+## Webex Incoming Webhooks Integration on Webex App Hub - Preferred Method in this Usecase
+- Create a Webex Teams room from the Webex Teams application.
+  - This is where we'll be posting messages about the config diff on the switch.
 - Create a simple bot and write down the access token.
-  - Version 1 of this bot is not interactive.  The bot is only used to post messages to the WebEx Teams Room.
-  - Copy the bot's Access Token to the python module, 'mytokens.py'.
-  - See references below for information on creating a bot.
+  - Connect the *Incoming Webhooks Integration* on Webex App Hub.
+    - Name the Webhook
+    - Select the Webex Teams room you created
+    - Click on Connect
+  - Copy the webhook URL to the python module, 'mytokens.py'.
+  - See references below for information on connecting the *Incoming Webhooks Integration*.
+
+## Webex Bot Setup - Optional
 - Create a webex Teams room and get the Room Id.
   - This is where the bot will be posting messages about the config diff on the switch.
   - Copy room id to the python module, 'mytokens.py'.
   - See references below for information on getting the Room Id.
+- Create a simple bot and write down the access token.
+  - Version 1 of this bot is not interactive.  The bot is only used to post messages to the WebEx Teams Room.
+  - Copy the bot's Access Token to the python module, 'mytokens.py'.
+  - See references below for information on creating a bot.
 
 ## EEM Setup
 This is the IOS-XE Configuration for EEM Applet.
@@ -170,6 +181,11 @@ Time to run the app by making a configuration change on the switch. Login to Web
 - Thanks to Hank Preston for his blog post on GuestShell:
   ```
   https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394
+  ```
+
+- Incoming Webhooks Integration on Cisco Webex App Hub
+  ```
+  https://apphub.webex.com/messaging/applications/incoming-webhooks-cisco-systems-38054
   ```
 
 - Cisco Reference link to create a WebEx Teams Bot:
