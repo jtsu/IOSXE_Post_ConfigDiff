@@ -170,47 +170,30 @@ To see the app in action, simply make a configuration change on the switch on yo
   csr1000v(config-if)# description Test Interface
   csr1000v(config-if)# end
   ```
-Then you just need to ogin to WebEx Teams, or your collaboration platform of choice, and check your room for the message.
+Then you just need to login to WebEx Teams, or your preferred collaboration client, and check your room for the diff message.
 
 **NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog pattern.
 
 
-## References and Getting Help
-- Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  
-  ```
-  https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark
-  ```
+## References 
 
-- Thanks to Ashish (ashirkar) for his blog post on EEM:
-  ```
-  https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479#:~:text=The%20EEM(Embedded%20Event%20manager,minor%20enhancements%20and%20create%20workarounds
-  ```
+Here's are some references for learning more about the features used in our app.
 
-- Thanks to Hank Preston for his blog post on GuestShell:
-  ```
-  https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394
-  ```
+* Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  [eem_configdiff_to_spark](https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark)
+* Thanks to Ashish (ashirkar) for his blog post shared on Cisco Community:
+  [Cisco EEM Basic Overview and Sample Configurations](https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479)
+* Thanks to Hank Preston for his blog post shared on Cisco Community:
+  [Introducing Python and Guest Shell on IOS-XE 16.5](https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394)
+* [Incoming Webhooks Integration on Cisco Webex App Hub](https://apphub.webex.com/messaging/applications/incoming-webhooks-cisco-systems-38054)
 
-- Incoming Webhooks Integration on Cisco Webex App Hub
-  ```
-  https://apphub.webex.com/messaging/applications/incoming-webhooks-cisco-systems-38054
-  ```
+## Getting Help
 
-- Cisco Reference link to create a WebEx Teams Bot:
-  ```
-  https://developer.webex.com/docs/bots
-  ```
+Here's are some Cisco DevNet and Developers links for additional learning and information.
+* [Cisco Reference link to create a WebEx Teams Bot](https://developer.webex.com/docs/bots)
+* [Chat-Ops with Webex and Python](https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/1)
+* [Introduction to Guestshell on IOS XE](https://developer.cisco.com/learning/modules/net_app_hosting)
 
-- Cisco DevNet Learning Lab reference for getting the Webex Room Id:
-  ```
-  https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/2
-  ```
-
-- GuestShell Learning Lab on Cisco DevNet is a good resource for learning more about GuestShell and getting more details on how to configure it.
-  ```
-  https://developer.cisco.com/learning/modules/net_app_hosting
-
-  ```
+  
   
 ## Author(s)
   
