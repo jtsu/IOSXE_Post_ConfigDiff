@@ -7,7 +7,7 @@ import mytokens
 
 clients = {}
 
-# webhooks
+# incoming webhooks.  add your webhook url in mytokens.py.
 clients['WebEx'] = {
     "url": mytokens.webex_webhook_url,
     "headers": {"Content-Type": "application/json"},
@@ -27,7 +27,7 @@ clients['Microsoft Teams'] = {
 }
 
 '''
-# example if you don't plan to use webhooks
+# this is just an example if you don't plan to use webhooks
 clients['WebEx Teams'] = {
     "url": "https://api.ciscospark.com/v1/messages/",
     "headers": {"Authorization": "Bearer %s" % mytokens.access_token, "Content-Type": "application/json"},
@@ -35,6 +35,7 @@ clients['WebEx Teams'] = {
 }
 '''
 
+#set this to True if you use a HTTP Proxy.  Add the proxy url in mytokens.py.
 use_proxy = True
 
 http_proxy = mytokens.http_proxy

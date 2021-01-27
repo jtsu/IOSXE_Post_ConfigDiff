@@ -12,7 +12,6 @@ This app uses the following:
 - Python Script
   - This is the part of the app that will process and post the config diff to Webex Teams.
 
-
 ## Collaboration Clients Setup  
 - In our app, we're going to post message to the following platforms:
   - Webex Teams
@@ -102,9 +101,9 @@ This is the IOS-XE Configuration for EEM Applet.
   [guestshell@guestshell ~]$ sudo yum install -y python3-pip
   ```
 
-- Install the python requests module, and use the optional proxy, if needed.
+- Install the python requests module, and use the optional proxy, if needed. Be sure to use the proxy url and port for your environment.
   ```
-  [guestshell@guestshell ~]$ sudo pip3 install --proxy proxy.server.com:8080 requests
+  [guestshell@guestshell ~]$ sudo pip3 install --proxy your.proxy-server.com:8080 requests
   ```
 
 - Copy the python script to the EEM user policy directory.  
@@ -128,9 +127,9 @@ If a proxy server is needed in your enviroment, you'll need to configure the fol
   [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
   ```
 
-- Add the following parameters in to proxy.sh shell script.
+- Add the following parameters in to proxy.sh shell script.  Be sure to use the proxy url and port for your environment.
   ```  
-  PROXY_URL="http://proxy.server.com:8080/"
+  PROXY_URL="http://your.proxy-server.com:8080/"
   export http_proxy="$PROXY_URL"
   export https_proxy="$PROXY_URL"
   export ftp_proxy="$PROXY_URL"
@@ -147,9 +146,9 @@ If a proxy server is needed in your enviroment, you'll need to configure the fol
   [guestshell@guestshell ~]$ env | grep -i proxy
   ```
 
--  Configure the proxy server for the Yum package manager.
+-  Configure the proxy server for the Yum package manager.  Be sure to use the proxy url and port for your environment.
   ```
-  [guestshell@guestshell ~]$ echo "proxy=proxy.server.com:8080" | sudo tee --append /etc/yum.conf
+  [guestshell@guestshell ~]$ echo "proxy=your.proxy-server.com:8080" | sudo tee --append /etc/yum.conf
 
   ```
 
