@@ -21,10 +21,6 @@ Provide links to related white papers:
 * Thanks to Hank Preston for his blog post shared on Cisco Community:
   [Introducing Python and Guest Shell on IOS-XE 16.5](https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394)
 
-## Related Sandbox
-Cisco IOS-XE related labs can be found on the DEVNET Sandbox.  You can search for "IOS XE on CSR" or "IOS XE on Catalyst 9000" Lab and try creating this project yourself.
-* [Cisco DEVNET Sandbox Labs](https://devnetsandbox.cisco.com)
-
 ## Links to DevNet Learning Labs and Useful Guides
 Here's are some Cisco DevNet and Developers links for additional learning and configuration.
 * [Webex Teams Bot](https://developer.webex.com/docs/bots)
@@ -33,3 +29,6 @@ Here's are some Cisco DevNet and Developers links for additional learning and co
 * [Incoming Webhooks Integration on Cisco Webex App Hub](https://apphub.webex.com/messaging/applications/incoming-webhooks-cisco-systems-38054)
 * [Programmability Configuration Guide, Cisco IOS XE Fuji](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/167/b_167_programmability_cg/guest_shell.html)
 
+## Related Sandbox
+Cisco IOS-XE related labs can be found on the DEVNET Sandbox.  You can search for "IOS XE on CSR" or "IOS XE on Catalyst 9000" Lab and try creating this project yourself.
+* [Cisco DEVNET Sandbox Labs](https://devnetsandbox.cisco.com)
