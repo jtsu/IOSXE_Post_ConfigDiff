@@ -15,7 +15,7 @@ One of the limitations we have is that we do our diff to a baseline config.  It 
 
 
 ## White Papers and Helpful Blog Posts
-These are some informative references that helped us with our project 
+These are some informative references that helped us with our project. 
 * Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  [eem_configdiff_to_spark](https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark)
 * Thanks to Ashish (ashirkar) for his blog post shared on Cisco Community:
   [Cisco EEM Basic Overview and Sample Configurations](https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479)
