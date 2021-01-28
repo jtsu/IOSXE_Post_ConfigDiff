@@ -2,11 +2,13 @@
 This application uses the features and resources on the Cisco IOS-XE platforms.  The app will check for a config change and post the diff to a collaboration platform.  Currently the app will post messages to Webex Teams, Microsoft Teams, and Slack.  The app will also run directly on a Cisco IOS-XE switch or router, so no additional server resources are needed.
 
 ## Use Case Description
-Some times it can be difficult to identify exactly what config changes were make on a Cisco switch or router.  There are certainly applications on the market to help examine and identify configuration differences.  But it would be better to see and track an audit trail of the differences.
+Some times it can be difficult to identify exactly what config changes were make on a Cisco switch or router.  There are certainly applications on the market to help examine and identify configuration differences.  But it would be nice to track those changes and see a history of that information in one single application.
 
-We created a simple application that would track configuration changes and post those changes to a Webex Teams room.  With all the changes now posted in a room, it is very easy to scroll back in time to see what changes were made.  
+We created a simple application that would track configuration changes and post those changes to a Webex Teams room.  With all the changes now posted in a room, it is very easy to scroll back to see what changes were made.  
 
 Webex Teams isn't universally used by all our customers, so we also wanted to incorporate some options in our app to post to other collaboration clients.  We included options to post messages to Microsoft Teams and Slack.
+
+Many administrators have security policies that prohibit their network infrastructure from having direct access to outside of their network.  We also included an option to enable the use of an HTTP Proxy for those network environments that would need it.
 
 One of the limitations we have is that we do our diff to a baseline config.  It would be great to have an option to see a diff to a prior version. 
 
