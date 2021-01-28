@@ -14,9 +14,8 @@ One of the limitations we have is that we do our diff to a baseline config.  It 
 
 ## Configuration Overview
 This app uses the following:
-- Webex Teams  
-  - A Cisco Communications and Messaging Application.
-  - Microsoft Teams or Slack can also be configured.
+- Webex Teams, a Cisco Communications and Messaging Application.
+  - Microsoft Teams or Slack can also be used.
 - EEM in IOS-XE
   - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
 - GuestShell in IOS-XE
