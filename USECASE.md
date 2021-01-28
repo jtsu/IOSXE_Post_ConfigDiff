@@ -27,7 +27,7 @@ Here's are some Cisco DevNet and Developers links for additional learning and co
 * [Chat-Ops with Webex and Python](https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/1)
 * [Introduction to Guestshell on IOS XE](https://developer.cisco.com/learning/modules/net_app_hosting)
 * [Incoming Webhooks Integration on Cisco Webex App Hub](https://apphub.webex.com/messaging/applications/incoming-webhooks-cisco-systems-38054)
-* [Programmability Configuration Guide, Cisco IOS XE Fuji](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/167/b_167_programmability_cg/guest_shell.html)
+* [Programmability Configuration Guide, Cisco IOS XE Fuji 16.7.x](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/167/b_167_programmability_cg/guest_shell.html)
 
 ## Related Sandbox
 Cisco IOS-XE related labs can be found on the DEVNET Sandbox.  You can search for "IOS XE on CSR" or "IOS XE on Catalyst 9000" Lab and try creating this project yourself.
