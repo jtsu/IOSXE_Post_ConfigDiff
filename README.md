@@ -6,7 +6,7 @@ This app uses the features and resources on the Cisco IOS-XE platforms.  The app
 Information regarding our use case can be found in our [use case statement](./USECASE.md).
 
 
-## Configuration Overview
+## Installation/Configuration Overview
 This app uses the following:
 - Webex Teams, a Cisco Communications and Messaging Application.
   - Microsoft Teams or Slack can also be used.
