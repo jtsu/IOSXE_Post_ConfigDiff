@@ -2,6 +2,9 @@
 This application uses the features and resources on the Cisco IOS-XE platforms.  The app will check for a config change and post the diff to a collaboration platform.  Currently the app will post messages to Webex Teams, Microsoft Teams, and Slack.  The app will also run directly on a Cisco IOS-XE switch or router, so no additional server resources are needed.
 
 ## Use Case Description
+
+[The use case statement of our app](./USECASE.md)
+
 Some times it can be difficult to identify exactly what config changes were make on a Cisco switch or router.  There are certainly applications on the market to help examine and identify configuration differences.  But it would be nice to track those changes and see a history of that information in a single collaboration tool that you use on a daily basis.
 
 We created a simple application that would track configuration changes and post those changes to a Webex Teams room.  With all the changes now posted in a room, it is very easy to scroll back to see what changes were made.  
