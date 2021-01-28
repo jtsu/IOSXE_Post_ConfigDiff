@@ -3,7 +3,7 @@ This application uses the features and resources on the Cisco IOS-XE platforms. 
 
 ## Use Case Description
 
-Information regarding our use case can be found in our [use case statement](./USECASE.md#use-case-description).
+Information regarding our use case can be found in our [use case statement](./USECASE.md#use-case-statement).
 
 
 ## Configuration Overview
