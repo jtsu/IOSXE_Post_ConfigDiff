@@ -1,7 +1,7 @@
 # IOS-XE Post ConfigDiff
 Tracking IOS-XE config diffs with collaboration clients 
 
-## USE CASE Description
+## Use Case Statement
  
 Some times it can be difficult to identify exactly what config changes were make on a Cisco switch or router.  There are certainly applications on the market to help examine and identify configuration differences.  But it would be nice to track those changes and see a history of that information in a single collaboration tool that you use on a daily basis.
 
