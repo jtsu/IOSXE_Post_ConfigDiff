@@ -11,7 +11,7 @@ This app uses the following:
 * Webex Teams, a Cisco Communications and Messaging Application.
   * Microsoft Teams or Slack can also be used.
 * Cisco IOS XE Platform
-  * This can be  a Cisco Catalyst Switch or Cisco Router platform that can supports IOS XE v16.5.1 or later.  
+  * This can be  a Cisco Catalyst 9000 Switch or Cisco Router platform that can supports IOS XE v16.5.1 or later.  
   * For our project, we used a Cisco CSR 1000v with IOS XE version 17.03.02.
 * EEM in IOS-XE
   * The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
