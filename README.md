@@ -8,26 +8,29 @@ Information regarding our use case can be found in our [use case statement](./US
 
 ## Installation
 This app uses the following:
-- Webex Teams, a Cisco Communications and Messaging Application.
-  - Microsoft Teams or Slack can also be used.
-- EEM in IOS-XE
-  - The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
-- GuestShell in IOS-XE
-  - The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
-- Python Script
-  - This is the part of the app that will process and post the config diff to Webex Teams.
+* Webex Teams, a Cisco Communications and Messaging Application.
+  * Microsoft Teams or Slack can also be used.
+* Cisco IOS XE Platform
+  * This can be  a Cisco Catalyst Switch or Cisco Router platform that can supports IOS XE v16.5.1 or later.  
+  * For our project, we used a Cisco CSR 1000v with IOS XE 17.03.02.
+* EEM in IOS-XE
+  * The Embedded Event manager (EEM) is a software component of cisco IOS-XE that can track and classify events that take place and can help you to automate tasks.
+* GuestShell in IOS-XE
+  * The ability to execute Python code directly on a Cisco Switch is a part of the Application Hosting capabilities provided by GuestShell.  GuestShell is a containerized Linux runtime environment in which you can install and run applications, such as Python scripts.  From within GuestShell, you have access to the networks of the host platform, bootflash and IOS CLI.  GuestShell is isolated from the underlying host software to prevent interference of the core network functions of the device.
+* Python Script
+  * This is the part of the app that will process and post the config diff to Webex Teams.
 
 ## Collaboration Clients Configuration  
-- In our app, we're going to post message to the following platforms:
-  - Webex Teams
-  - Microsoft Teams
-  - Slack
-- We're going to use *Incoming Webhooks* to post the config diffs to each client.  Incoming webhooks let you post messages when an event occurs in another service.
-- The steps to configure Incoming Webhooks are very similar for each of our three clients.
-  - Create a room/team/channel in each client where our app will post the config diffs
-  - Connect the *Incoming Webhook(s)* App in each client.
-  - Name and select the room/team/channel you created.
-  - Copy each webhook URL to the python module, 'mytokens.py'.
+* In our app, we're going to post message to the following platforms:
+  * Webex Teams
+  * Microsoft Teams
+  * Slack
+* We're going to use *Incoming Webhooks* to post the config diffs to each client.  Incoming webhooks let you post messages when an event occurs in another service.
+* The steps to configure Incoming Webhooks are very similar for each of our three clients.
+  * Create a room/team/channel in each client where our app will post the config diffs
+  * Connect the *Incoming Webhook(s)* App in each client.
+  * Name and select the room/team/channel you created.
+  * Copy each webhook URL to the python module, 'mytokens.py'.
 
 ## EEM Configuration
 This is the IOS-XE Configuration for EEM Applet.
@@ -41,7 +44,7 @@ This is the IOS-XE Configuration for EEM Applet.
   ```
 
 ## GuestShell Configuration
-- IOX needs to be enable on the IOX-XE platform for GuestShell.
+* IOX needs to be enable on the IOX-XE platform for GuestShell.
   ```
   csr1000v# conf t
   Enter configuration commands, one per line.  End with CNTL/Z.
@@ -49,7 +52,7 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v(config)# end
   ```
 
-- A VirtualPortGroup is used to enable the communication between IOS XE and the GuestShell container.
+* A VirtualPortGroup is used to enable the communication between IOS XE and the GuestShell container.
   ```
   csr1000v# conf t
   csr1000v(config)# interface VirtualPortGroup 0
@@ -57,7 +60,7 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v(config-if)# end
   ```
 
-- Configure the network settings that will get passed to GuestShell when it's enabled.  
+* Configure the network settings that will get passed to GuestShell when it's enabled.  
   ```
   csr1000v# conf t
   csr1000v(config)# app-hosting appid guestshell
@@ -65,7 +68,7 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v(config-app-hosting)# end
   ```
 
-- Configure NAT if an access from the container to the outside world is needed.
+* Configure NAT if an access from the container to the outside world is needed.
   ```
   csr1000v# conf t
   csr1000v(config)# interface VirtualPortGroup0
@@ -83,7 +86,7 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v(config)# end
   ```
 
-- Enable GuestShell on the IOX-XE platform.
+* Enable GuestShell on the IOX-XE platform.
   ```
   csr1000v# guestshell enable
   ```
@@ -93,12 +96,12 @@ This is the IOS-XE Configuration for EEM Applet.
   csr1000v# guestshell
   ```
 
-- Optional: We have already defined a DNS Name Server in the app-hosting config for GuestShell, so this step isn't needed. But if you didn't want to configure DNS from IOX-XE, you could configure it directly in the GuestShell environment.  
+* Optional: We have already defined a DNS Name Server in the app-hosting config for GuestShell, so this step isn't needed. But if you didn't want to configure DNS from IOX-XE, you could configure it directly in the GuestShell environment.  
   ```
   [guestshell@guestshell ~]$ echo "nameserver 208.67.222.222" | sudo tee --append /etc/resolv.conf
   ```
 
-- Depending on the IOS-XE platform and version, you may need to install python and some additional utilities.
+* Depending on the IOS-XE platform and version, you may need to install python and some additional utilities.
   ```
   [guestshell@guestshell ~]$ sudo yum update -y
   [guestshell@guestshell ~]$ sudo yum install -y nano python3 epel-release
@@ -106,17 +109,17 @@ This is the IOS-XE Configuration for EEM Applet.
   [guestshell@guestshell ~]$ sudo yum install -y python3-pip
   ```
 
-- Install the python requests module, and use the optional proxy, if needed. Be sure to use the proxy url and port for your environment.
+* Install the python requests module, and use the optional proxy, if needed. Be sure to use the proxy url and port for your environment.
   ```
   [guestshell@guestshell ~]$ sudo pip3 install --proxy your.proxy-server.com:8080 requests
   ```
 
-- Copy the python script to the EEM user policy directory.  
+* Copy the python script to the EEM user policy directory.  
   - You can copy the script to a directory in GuestShell or you can create a directory on the flash from the IOS-XE CLI.
   - In the EEM config above, the script is located in the home path on GuestShell.
   - If you would like to copy the script to the bootflash, use the absolute path in the EEM config.
 
-- Exit GuestShell and return to IOS-XE
+* Exit GuestShell and return to IOS-XE
   ```
   [guestshell@guestshell ~]$ exit
   ```
@@ -127,12 +130,12 @@ This is the IOS-XE Configuration for EEM Applet.
 ## Optional Configuration - System Proxy Settings for GuestShell
 If a proxy server is needed in your enviroment, you'll need to configure the following proxy settings in GuestShell.
 
-- Create a proxy.sh shell script to add the proxy settings to the system profile.
+* Create a proxy.sh shell script to add the proxy settings to the system profile.
   ```
   [guestshell@guestshell ~]$ sudo nano /etc/profile.d/proxy.sh
   ```
 
-- Add the following parameters in to proxy.sh shell script.  Be sure to use the proxy url and port for your environment.
+* Add the following parameters in to proxy.sh shell script.  Be sure to use the proxy url and port for your environment.
   ```  
   PROXY_URL="http://your.proxy-server.com:8080/"
   export http_proxy="$PROXY_URL"
@@ -145,13 +148,13 @@ If a proxy server is needed in your enviroment, you'll need to configure the fol
   export NO_PROXY="127.0.0.1,localhost"
   ```
 
-- Source the profile to activate the proxy settings.
+* Source the profile to activate the proxy settings.
   ```
   [guestshell@guestshell ~]$ source /etc/profile
   [guestshell@guestshell ~]$ env | grep -i proxy
   ```
 
--  Configure the proxy server for the Yum package manager.  Be sure to use the proxy url and port for your environment.
+* Configure the proxy server for the Yum package manager.  Be sure to use the proxy url and port for your environment.
   ```
   [guestshell@guestshell ~]$ echo "proxy=your.proxy-server.com:8080" | sudo tee --append /etc/yum.conf
 
