@@ -165,9 +165,9 @@ To see the app in action, simply make a configuration change on the switch on yo
   csr1000v(config-if)# description Test Interface
   csr1000v(config-if)# end
   ```
-Then you just need to login to WebEx Teams, or your preferred collaboration client, and check your room for the diff message.
-
 **NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog pattern.
+
+After a config change has been made, login to WebEx Teams, or your preferred collaboration client, and check your room for the diff message.
 
 
 ## References 
