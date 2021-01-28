@@ -1,7 +1,7 @@
-#USE CASE Description
+# IOS-XE Post ConfigDiff - Tracking IOS-XE config diffs with collaboration clients 
 
-## IOS-XE Post ConfigDiff - Tracking IOS-XE config diffs with collaboration clients 
-
+## USE CASE Description
+ 
 Some times it can be difficult to identify exactly what config changes were make on a Cisco switch or router.  There are certainly applications on the market to help examine and identify configuration differences.  But it would be nice to track those changes and see a history of that information in a single collaboration tool that you use on a daily basis.
 
 We created a simple application that would track configuration changes and post those changes to a Webex Teams room.  With all the changes now posted in a room, it is very easy to scroll back to see what changes were made.  
