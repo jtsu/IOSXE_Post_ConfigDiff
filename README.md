@@ -1,5 +1,5 @@
 # IOS-XE Post ConfigDiff 
-This application uses the features and resources on the Cisco IOS-XE platforms.  The app will track config changes and post the diff to a collaboration platform. The app will post messages to Webex Teams, Microsoft Teams, and Slack.  Some network environments require the use  of a HTTP proxy server, so a proxy option has been added to our app.  The app will also run directly on a Cisco IOS-XE switch or router, so no additional server resources are needed.
+This app uses the features and resources on the Cisco IOS-XE platforms.  The app will track config changes and post the diff to a collaboration platform. The app will post messages to Webex Teams, Microsoft Teams, and Slack.  Some network environments require the use  of a HTTP proxy server, so a proxy option has been added to our app.  The app will also run directly on a Cisco IOS-XE switch or router, so no additional server resources are needed.
 
 ## Use Case Description
 
