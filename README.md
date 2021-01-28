@@ -3,7 +3,7 @@ This application uses the features and resources on the Cisco IOS-XE platforms. 
 
 ## Use Case Description
 
-The [use case statement](./USECASE.md) of our application.
+Information regarding our use case can be found in our [use case statement](./USECASE.md#use-case-description).
 
 
 ## Configuration Overview
@@ -171,24 +171,8 @@ Then you just need to login to WebEx Teams, or your preferred collaboration clie
 
 
 ## References 
+[Additional information to white papers, documentation, helpful blogs and Cisco DevNet Learning Labs.](./USECASE.md#white-papers-and-helpful-blog-posts)
 
-Here's are some references for information more about the features used in our app.
-
-* Many thanks to Patrick Mosimann and the Cisco DevNet Team for sharing their scripts that was the basis for our app:  [eem_configdiff_to_spark](https://github.com/CiscoDevNet/python_code_samples_network/tree/master/eem_configdiff_to_spark)
-* Thanks to Ashish (ashirkar) for his blog post shared on Cisco Community:
-  [Cisco EEM Basic Overview and Sample Configurations](https://community.cisco.com/t5/networking-documents/cisco-eem-basic-overview-and-sample-configurations/ta-p/3148479)
-* Thanks to Hank Preston for his blog post shared on Cisco Community:
-  [Introducing Python and Guest Shell on IOS-XE 16.5](https://community.cisco.com/t5/developer-general-blogs/introducing-python-and-guest-shell-on-ios-xe-16-5/ba-p/3661394)
-* [Incoming Webhooks Integration on Cisco Webex App Hub](https://apphub.webex.com/messaging/applications/incoming-webhooks-cisco-systems-38054)
-
-## Getting Help
-
-Here's are some Cisco DevNet and Developers links for additional learning and configuration.
-* [Webex Teams Bot](https://developer.webex.com/docs/bots)
-* [Chat-Ops with Webex and Python](https://developer.cisco.com/learning/lab/collab-spark-chatops-bot-itp/step/1)
-* [Introduction to Guestshell on IOS XE](https://developer.cisco.com/learning/modules/net_app_hosting)
-
-  
   
 ## Author(s)
   
