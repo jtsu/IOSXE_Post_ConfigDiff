@@ -158,7 +158,7 @@ If a proxy server is needed in your enviroment, you'll need to configure the fol
   ```
 
 ## Usage
-To see the app in action, simply make a configuration change on the switch on your Cisco switch or router.  For example, you can change the description of an interface.
+To see the app in action, simply make a configuration change on your Cisco switch or router.  For example, you can change the description of an interface.
   ```
   csr1000v# conf t
   csr1000v(config)# interface GigabitEthernet3 
