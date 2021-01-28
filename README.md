@@ -171,7 +171,7 @@ Then you just need to login to WebEx Teams, or your preferred collaboration clie
 
 
 ## References 
-[Additional information to white papers, documentation, helpful blogs and Cisco DevNet Learning Labs.](./USECASE.md#white-papers-and-helpful-blog-posts)
+If you would like to get  more information on the topics or features used in our project, we compiled a list of links to white papers, documentation, helpful blogs and Cisco DevNet Learning Labs that may be of interest.  [Here's a link to those references](./USECASE.md#white-papers-and-helpful-blog-posts).
 
   
 ## Author(s)
