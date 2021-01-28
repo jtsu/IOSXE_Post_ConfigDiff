@@ -6,7 +6,7 @@ Some times it can be difficult to identify exactly what config changes were make
 
 We created a simple application that would track configuration changes and post those changes to a Webex Teams room.  With all the changes now posted in a room, it is very easy to scroll back to see what changes were made.  
 
-Webex Teams isn't universally used by all our customers, so we also wanted to incorporate some options in our app to post to other collaboration clients. We decided to created a simple framework to support other collaboration clients.  Our app includes options to post messages to Microsoft Teams and Slack.
+Webex Teams isn't universally used by all our customers, so we decided to created a simple framework to support other collaboration clients.  Our app includes options to post messages to Microsoft Teams and Slack.
 
 Many IT administrators have security policies that prohibit their network infrastructure from having direct access to the public cloud.  We also included an option to enable the use of an HTTP Proxy for those network environments that would need it.
 
