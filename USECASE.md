@@ -29,7 +29,7 @@ Here's are some Cisco DevNet and Developers links for additional learning and co
 * [Introduction to Guestshell on IOS XE](https://developer.cisco.com/learning/modules/net_app_hosting)
 * [Incoming Webhooks Integration on Cisco Webex App Hub](https://apphub.webex.com/messaging/applications/incoming-webhooks-cisco-systems-38054)
 * [Programmability Configuration Guide, Cisco IOS XE Fuji 16.7.x](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/167/b_167_programmability_cg/guest_shell.html)
-* * [Cisco Cloud Services Router 1000V Series](https://www.cisco.com/c/en/us/products/routers/cloud-services-router-1000v-series/index.html)
+* [Cisco Cloud Services Router 1000V Series](https://www.cisco.com/c/en/us/products/routers/cloud-services-router-1000v-series/index.html)
 
 ## Related Cisco Product and Sandbox Information
 For our project, we used the Cisco CSR 1000v.  The Cisco CSR 1000v is a virtual router that can be easily deployed on a virtual machine.  If you don't have access to a Cisco IOS-XE platform, we recommend taking a look at the Cisco IOS-XE labs can be found on the DEVNET Sandbox.  You can search for the "IOS XE on CSR" or "IOS XE on Catalyst 9000" labs and try creating this project yourself.
