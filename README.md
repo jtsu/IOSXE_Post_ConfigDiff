@@ -8,7 +8,7 @@ We created a simple application that would track configuration changes and post 
 
 Webex Teams isn't universally used by all our customers, so we also wanted to incorporate some options in our app to post to other collaboration clients.  We included options to post messages to Microsoft Teams and Slack.
 
-Many administrators have security policies that prohibit their network infrastructure from having direct access to outside of their network.  We also included an option to enable the use of an HTTP Proxy for those network environments that would need it.
+Many IT administrators have security policies that prohibit their network infrastructure from having direct access to the public cloud.  We also included an option to enable the use of an HTTP Proxy for those network environments that would need it.
 
 One of the limitations we have is that we do our diff to a baseline config.  It would be great to have an option to see a diff to a prior version. 
 
