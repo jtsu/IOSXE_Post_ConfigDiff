@@ -21,7 +21,7 @@ This app uses the following:
   * This is the part of the app that will process and post the config diff to Webex Teams.
 
 ## Collaboration Clients Configuration  
-* In our app, we're going to post message to the following platforms:
+* This app supports posting messages to the following platforms:
   * Webex Teams
   * Microsoft Teams
   * Slack
