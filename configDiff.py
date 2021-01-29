@@ -49,12 +49,25 @@ def post(message):
     for key, value in clients.items():
         clients[key]["data"]["text"] = message
 
+        #Check if the default webhook url has been changed and skip the iteration if not changed.
+    	if clients[key]["url"] == "https://your.webhook.url":
+            print("Default %s Webhook URL unchanged in the mytokens.py module." % key)
+            print("Replace the default with your %s webhook URL." % key)
+            continue
+        elif len(clients[key]["url"]) <= 0:
+            print("%s Webhook URL needs to be added in the mytokens.py module." % key)
+            continue
+
         if use_proxy:
-            response = requests.post(clients[key]["url"], \
-            headers=clients[key]["headers"], \
-            proxies=proxyDict, \
-            data=json.dumps(clients[key]["data"]), \
-            verify=True)
+        #Check if the default webhook url has been changed and skip the iteration if not changed.
+        	if proxyDict["http"] == "http://proxy.your.server.com:port":
+                sys.exit("SystemExit: Proxy enabled.  Change the Default proxy URL in the mytokens.py module.")
+            else:
+                response = requests.post(clients[key]["url"], \
+                headers=clients[key]["headers"], \
+                proxies=proxyDict, \
+                data=json.dumps(clients[key]["data"]), \
+                verify=True)
         else:
             response = requests.post(clients[key]["url"], \
             headers=clients[key]["headers"], \
