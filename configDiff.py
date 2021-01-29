@@ -49,7 +49,7 @@ def post(message):
     for key, value in clients.items():
         clients[key]["data"]["text"] = message
 
-        #Check if the default webhook url has been changed and skip the iteration if not changed.
+        #Check if the default webhook url has been changed. Skips the iteration if not changed.
     	if clients[key]["url"] == "https://your.webhook.url":
             print("Default %s Webhook URL unchanged in the mytokens.py module." % key)
             print("Replace the default with your %s webhook URL." % key)
@@ -59,7 +59,7 @@ def post(message):
             continue
 
         if use_proxy:
-        #Check if the default webhook url has been changed and skip the iteration if not changed.
+        #Check if the default proxy url has been changed. Exit if not changed.
         	if proxyDict["http"] == "http://proxy.your.server.com:port":
                 sys.exit("SystemExit: Proxy enabled.  Change the Default proxy URL in the mytokens.py module.")
             else:
