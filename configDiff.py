@@ -27,7 +27,7 @@ clients['Microsoft Teams'] = {
 }
 
 '''
-# this is just an example if you don't plan to use webhooks
+# This is just an example if you don't plan to use webhooks.  This is not used and is here for potential use in a future version.
 clients['WebEx Teams'] = {
     "url": "https://api.ciscospark.com/v1/messages/",
     "headers": {"Authorization": "Bearer %s" % mytokens.access_token, "Content-Type": "application/json"},
