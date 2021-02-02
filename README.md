@@ -170,7 +170,9 @@ To see the app in action, simply make a configuration change on your Cisco switc
   ```
 **NOTE:** Be sure to exit configuration mode since EEM is looking for a specific syslog pattern.
 
-After a config change has been made, login to WebEx Teams, or your preferred collaboration client, and check your room for the diff message.
+After a config change has been made, login to WebEx Teams, or your preferred collaboration client, and check your room for the diff message.  
+
+![Example of diff posted in Webex Teams](./Diff_Posted-Webex.png)
 
 
 ## References 
