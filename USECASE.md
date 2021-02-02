@@ -31,6 +31,5 @@ Here's are some Cisco DevNet and Developers links for additional learning and co
 * [Programmability Configuration Guide, Cisco IOS XE Fuji 16.7.x](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/167/b_167_programmability_cg/guest_shell.html)
 
 ## Related Sandbox
-For our project, we used the Cisco CSR 1000v.  The Cisco CSR 1000v is a virtual router that can be easily deployed on a virtual machine.  
-However, if you don't have access to a Cisco IOS-XE platform, Cisco DevNet has some terffic IOS XE Sandboxes you can use to test out the app yourself.  
+Cisco DevNet has some terffic resource you can use if you don't have access to a Cisco IOS XE platform. Try out the IOS XE Sandboxes and you can start exploring and testing things out yourself.  
 * [Cisco IOS XE Sandboxes](https://developer.cisco.com/docs/ios-xe/#!sandboxes/reservation-based-sandboxes)
