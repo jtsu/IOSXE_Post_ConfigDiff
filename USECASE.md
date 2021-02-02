@@ -32,6 +32,5 @@ Here's are some Cisco DevNet and Developers links for additional learning and co
 
 ## Related Sandbox
 For our project, we used the Cisco CSR 1000v.  The Cisco CSR 1000v is a virtual router that can be easily deployed on a virtual machine.  
-However, if you don't have access to a Cisco IOS-XE platform, we recommend taking a look at the Cisco IOS-XE labs can be found on the DEVNET Sandbox.  
-
-* [Cisco DEVNET Sandbox Labs](https://developer.cisco.com/docs/ios-xe/#!sandboxes/reservation-based-sandboxes)
+However, if you don't have access to a Cisco IOS-XE platform, Cisco DevNet has some terffic IOS XE Sandboxes you can use to test out the app yourself.  
+* [Cisco IOS XE Sandboxes](https://developer.cisco.com/docs/ios-xe/#!sandboxes/reservation-based-sandboxes)
