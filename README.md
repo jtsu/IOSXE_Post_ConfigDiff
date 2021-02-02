@@ -176,11 +176,11 @@ After a config change has been made, login to WebEx Teams, or your preferred col
 
 
 ## References 
-If you would like to get  more information on the topics or features used in our project, we compiled a list of links to white papers, documentation, helpful blogs and Cisco DevNet Learning Labs that may be of interest.  [Here's a link to those references](./USECASE.md#white-papers-and-helpful-blog-posts).
+If you would like to get  more information on the topics or features used in our project, we compiled a list of links to white papers, documentation, helpful blogs and Cisco DevNet Learning Labs that may be of interest.  [Here's a link to our references](./USECASE.md#white-papers-and-helpful-blog-posts).
 
 
 ## Cisco DevNet Sandbox
-For our project, we used the Cisco CSR 1000v. The Cisco CSR 1000v is a virtual router that can be easily deployed on a virtual machine.  However, if you don't have access to a Cisco IOS-XE platform, we recommend you try the Cisco IOS XE Sandboxes available at Cisco DevNet.  We included a sandbox reference in our USECASE documention. [Here's a link to that reference](./USECASE.md#related-sandbox).
+For our project, we used the Cisco CSR 1000v. The Cisco CSR 1000v is a virtual router that can be easily deployed on a virtual machine.  However, if you don't have access to a Cisco IOS-XE platform, we recommend you try the Cisco IOS XE Sandboxes available at Cisco DevNet.  We included a sandbox reference in our USECASE documentation. [Here's a link to that reference](./USECASE.md#related-sandbox).
 
 
 ## Author(s)
